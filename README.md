@@ -2,8 +2,11 @@
 该 *Web点餐系统* 是为了给食堂提供下一天的菜品做参考，使用```HTML5 + CSS3 + JS(jQuery)```进行**前端开发**，数据库采用本地数据库**WebSQL**，不使用后端开发。 系统实现以下基本功能：
 - 首页导航有三个：首页、我的订单、订单统计 
 - 在首页中： 
+
 (1) 展示当天菜品、热卖菜品、推荐菜品，显示完整的信息。 
+
 (2) 实现点菜，结果显示在合适位置中，所点的菜能够取消。 
+
 (3) 点菜的“提交”是将数据保存到本地，然后在“我的订单”中重现这些数据。
 - 在我的订单页面中，能够从保存在本地的数据中心提取出数据并能显示，并能添加和删除。 
 - 在订单统计页面中，用图表显示当天热卖前三的菜品统计结果。统计结果用不同类型的图表展示以下维度：菜品、价格、口味、食材。
@@ -11,7 +14,7 @@
 **系统功能结构图：**
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200120105757198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MjAxNzIyMDMwMjAyOA==,size_16,color_FFFFFF,t_70#pic_center)
 # 系统实现
-## · 首页（当天菜品）/推荐菜品/热买菜品
+## 首页（当天菜品）/推荐菜品/热买菜品
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200120142531138.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MjAxNzIyMDMwMjAyOA==,size_16,color_FFFFFF,t_70#pic_center)
 ### 页面布局的核心html文件
 让按钮或标签实现跳转界面：嵌套```<a href=""></a>```添加超链接即可。
@@ -204,7 +207,7 @@ A: **写一个showData()函数**，作为前面说的*事务提交函数*。比�
 </script>
 ```
 *注意：* 在已选菜品中是在不断地读取数据库表单的数据来显示到当前页面，因此只有当表单数据清空才能让页面清空点击，所以在点击“提交"后，则需要执行删除表单*MsgData*中的数据操作。但是由于我需要在我的订单中回显提交后的数据，如果删除了表单那就没地方读取数据了，那么这里可以采取**创建一个新的数据库表单*Dingdan***，每当*提交*操作发生时，首先进行**表单备份**，即：把表单*MsgData*中的所有数据添加到新创建的表单*Dingdan*中，然后再执行删除*MsgData*表单操作，既实现了已选菜品中数据清空，又实现了我的订单中数据回显。
-## · 我的订单
+## 我的订单
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200120142816878.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MjAxNzIyMDMwMjAyOA==,size_16,color_FFFFFF,t_70)
 ### 点击“删除”后执行删除数据库表单操作，js文件
 WebSQL数据库——**删除表单数据：**
@@ -255,10 +258,10 @@ WebSQL数据库——**删除表单数据：**
 </script>
 ```
 
-## · 订单统计
+## 订单统计
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200120142830913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MjAxNzIyMDMwMjAyOA==,size_16,color_FFFFFF,t_70)
 ### 使用Chart.js图表库绘制四种统计图
-#### 1.Chart.js使用：
+#### 1. Chart.js使用：
 1. 引入Chart.js库
 ```javascript
 <script src="../js/Chart.js"></script>
@@ -289,7 +292,7 @@ var barChart = new Chart(popCanvas1, {
    }
 });
 ```
-#### 2.左侧菜单栏：
+#### 2. 左侧菜单栏：
 定义两个div，一个放菜单栏，一个放内容。将两个div放在同一行，在css中**设置div为浮动：**
 ```css
 .left{
@@ -301,7 +304,7 @@ var barChart = new Chart(popCanvas1, {
 ```css
 .left li {height:40px;  position:relative;  display:block;padding:20px 0 0 120px;}
 ```
-#### 3.隐藏div，点击菜单栏选项后才显示：
+#### 3. 隐藏div，点击菜单栏选项后才显示：
 除了第一个div，其余的样式设置为**隐藏：**
 ```html
 <div style="display: none;">
