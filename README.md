@@ -1,5 +1,4 @@
-[toc]
-# 一、系统简介
+# 系统简介
 该 *Web点餐系统* 是为了给食堂提供下一天的菜品做参考，使用```HTML5 + CSS3 + JS(jQuery)```进行**前端开发**，数据库采用本地数据库**WebSQL**，不使用后端开发。 系统实现以下基本功能：
 - 首页导航有三个：<u>首页</u>、<u>我的订单</u>、<u>订单统计</u> 
 - 在首页中： 
@@ -8,10 +7,10 @@
 (3) 点菜的“提交”是将数据保存到本地，然后在“我的订单”中重现这些数据。
 - 在我的订单页面中，能够从保存在本地的数据中心提取出数据并能显示，并能添加和删除。 
 - 在订单统计页面中，用图表显示当天热卖前三的菜品统计结果。统计结果用不同类型的图表展示以下维度：菜品、价格、口味、食材。
-# 二、系统设计
+# 系统设计
 **系统功能结构图：**
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200120105757198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MjAxNzIyMDMwMjAyOA==,size_16,color_FFFFFF,t_70#pic_center =800x)
-# 三、系统实现
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200120105757198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MjAxNzIyMDMwMjAyOA==,size_16,color_FFFFFF,t_70#pic_center)
+# 系统实现
 ## · 首页（当天菜品）/推荐菜品/热买菜品
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200120142531138.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MjAxNzIyMDMwMjAyOA==,size_16,color_FFFFFF,t_70#pic_center)
 **页面布局的核心html文件**
@@ -205,7 +204,7 @@ A: **写一个showData()函数**，作为前面说的*事务提交函数*。比�
 ## · 我的订单
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200120142816878.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MjAxNzIyMDMwMjAyOA==,size_16,color_FFFFFF,t_70)
 **点击“删除”后执行删除数据库表单操作，js文件**
-WebSQL数据库——==删除表单数据：==
+WebSQL数据库——**删除表单数据：**
 删除表单数据跟获取表单数据的步骤是一样的，只不过我这里写了一个```DeleteData()```函数来封装db.transaction()，方便其他地方直接调用DeleteData()对其进行引用。
 ```javascript
 <script type="text/javascript">
@@ -254,8 +253,8 @@ WebSQL数据库——==删除表单数据：==
 
 ## · 订单统计
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200120142830913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MjAxNzIyMDMwMjAyOA==,size_16,color_FFFFFF,t_70)
-**使用Chart.js图表库绘制四种统计图（这里只展示一种图的绘制代码）**
-==1.Chart.js使用：==
+**使用Chart.js图表库绘制四种统计图**
+**1.Chart.js使用：==**
 1. 引入Chart.js库
 ```javascript
 <script src="../js/Chart.js"></script>
@@ -286,7 +285,7 @@ var barChart = new Chart(popCanvas1, {
    }
 });
 ```
-==2.左侧菜单栏：==
+**2.左侧菜单栏：**
 定义两个div，一个放菜单栏，一个放内容。将两个div放在同一行，在css中**设置div为浮动：**
 ```css
 .left{
@@ -298,7 +297,7 @@ var barChart = new Chart(popCanvas1, {
 ```css
 .left li {height:40px;  position:relative;  display:block;padding:20px 0 0 120px;}
 ```
-==3.隐藏div，点击菜单栏选项后才显示：==
+**3.隐藏div，点击菜单栏选项后才显示：**
 除了第一个div，其余的样式设置为**隐藏：**
 ```html
 <div style="display: none;">
@@ -321,13 +320,13 @@ var barChart = new Chart(popCanvas1, {
     })
 ```
 *PS:* 我当时遇到一个非常莫名其妙的问题，在经过多次切换后，所有图表都变得越来越小，甚至可以变得比最初小十分之一去了，看着怪吓人的，因为我绝对没有在任何地方改变过div的大小，刚开始以为是速度参数的问题，但是我改变了fast参数之发现这个问题依然存在，而且无参数更连动画效果都没有。最后查看开发者工具，进行多次调试，观察长宽的改变情况。发现了问题所在：
-> 对div的父容器设置长宽要用==百分比==才行。
+> 对div的父容器设置长宽要用**百分比**才行。
 >
 *我原来用的是数值，显示是invalid的，最后把宽度设置成百分比就会发现div的大小没有再改变了。*
 ```html
 <div class="content" style="width:50%">
 ```
-# 四、总结
+# 总结
 做Web前端感觉挺好玩的，你能很快地看到自己做出的效果，很有成就感。虽然这个过程中也遇到不少问题，但通过查阅资料和使用工具调试都得到了解决，第一次做Web前端学到不少东西，记录一下。有问题请多指教~~
-# 五、源码下载
-[Web点餐系统（前端开发）源码](https://download.csdn.net/download/yy2017220302028/12115569)
+# 协议
+本项目遵从[MIT协议](https://github.com/yuanyuano/Web/blob/master/LICENSE)
