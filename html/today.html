@@ -1,0 +1,256 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>点餐系统 人机交互</title>
+  <link href="../css/style1.css"  rel="stylesheet"  media="screen"  type="text/css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/carts.css">
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/jquery.dialog.js"></script>
+  <script src="../js/carts.js"></script>
+  <script src="../js/universial.js"></script>
+  <style type="text/css">a {text-decoration: none}</style>
+</head>
+<div>
+    <div  class="nav_bg">
+        <div class="wrap"> 
+            <ul id="nav" class="nav clearfix">
+                <li class="nLi" style="font-size: 30px;">
+                    <h3 class="e"><a  href="#" style="font-size: 23px;">饿了呀</a></h3>
+                </li>
+                <li class="nLi">
+                  <h3 class="d"><a  href="./index.html">首页</a></h3>
+                </li>
+                <li class="nLi ">
+                  <h3 class="d"><a href="myorder.html">我的订单</a></h3>
+                  
+                </li>
+          
+                <li class="nLi ">
+                  <h3 class="d"><a href="order-statistic.html">订单统计</a></h3>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="left" >
+            <ul class="leftborder">
+    
+
+              <li class="border1">
+                <a href="myorder.html">
+                    <img src='../images/dingdan.png' width=14 height=14 />
+                    <span class="outer">  我的订单</span>
+                    <br>
+                    <br>
+                    <span class="inner">近三个月的订单</span>
+                    
+                </a>
+            </li>
+            <li class="border2clicked">
+                <a href="./today.html">
+                    <img src='../images/remaicaipin.png' width=14 height=14 />
+                    <span class="outer">当天菜品</span>
+                    
+                </a>
+            </li>
+            <li class="border3">
+                <a href="./recommend.html">
+                    <img src='../images/tuijian.png' width=14 height=14 />
+                    <span class="outer">推荐菜品</span>
+                </a>
+            </li>
+            <li class="border4">
+                <a href="./hot.html">
+                    <img src='../images/menu.png' width=14 height=14 />
+                    <span class="outer">热卖菜品</span>
+                </a>
+            </li>
+            <li class="border5">
+                    <a href="./selected.html">
+                        <img src='../images/today.png' width=14 height=14 />
+                        <span class="outer">已选菜品</span>
+                        
+                    </a>
+            </li>
+                
+                         
+            </ul>
+    </div>
+  
+</div>
+<p style="font-size: 16px;  position: absolute; top:8.9%; left:48.5%;text-align: center;"><b>今日菜品</b></p>
+<div class="projects">
+    <!-- <br>
+    <p style="font-size: 15px; height: 30px;width:300px;background-color: silver;padding: 0 0 0 20px;text-align: center;" >今日菜品</p> -->
+    <ul class="rightborder">
+        <!-- <p style="font-size: 16px;  background-color: rgb(251, 255, 0);text-align: center;">当天菜品</p> -->
+        <li class="instruct">
+          <span style="padding:0px 65px 0 40px;position: relative ;top:25%;"><b>菜品图片</b> </span>
+          <span style="padding:0px 100px 0 0;position: relative ;top:25%;"><b>菜品名称</b> </span>
+          <span style="padding:0px 110px 0 0;position: relative ;top:25%;"><b>菜品简介</b> </span>
+          <span style="padding:0px 70px 0 30px;position: relative ;top:25%;"><b>菜品金额（单点）</b> </span>
+          <span style="padding:0px 100px 0 0;position: relative ;top:25%;"><b>菜品评价</b> </span>
+          <span style="padding:0px 0px 0 0;position: relative ;top:25%;"><b>操作</b></span>
+        </li>
+        <div class="cont">
+        <li class="dishes" id="first">
+            <img src='../images/jiachang.jpg' width=136px height=80px />
+            <span id="one">家常荤素套餐 </span>          
+            <span id="two">微辣、由猪肉、花菜等家常菜精心烹饪</span>
+            <span id="three">14(元) </span>
+            <span id="four">9星</span>
+            <span id="five">
+                <button class="inn" id="order1">点餐</button>
+                
+            </span>
+            <span id="six">
+                    <button class="inn" id="evaluate1">菜品评价</button>
+            </span>
+            
+        </li>
+        <li class="dishes" id="second">
+                <img src='../images/duojiaoyutou.jpg' width=136px height=80px />
+                <span id="one">剁椒鱼头 </span>              
+                <span id="two">较辣、由新鲜鲤鱼做成</span>
+                <span id="three">88(元) </span>
+                <span id="four">8星</span>
+                <span id="five">
+                        <button class="inn" id="order2">点餐</button>
+                        
+                    </span>
+                <span id="six">
+                    <button class="inn" id="evaluate2">菜品评价</button>
+                </span>
+                
+            </li>
+            <li class="dishes" id="third">
+                    <img src='../images/hongshaochaocai.jpg' width=136px height=80px />
+                    <span id="one">红烧肉炒菜 </span>                  
+                    <span id="two">不辣、由红烧肉和特制酱料烹饪</span>
+                    <span id="three">15(元) </span>
+                    <span id="four">8星</span>
+                    <span id="five">
+                            <button class="inn" id="order3">点餐</button>
+                            
+                    </span>
+                    <span id="six">
+                            <button class="inn" id="evaluate3">菜品评价</button>
+                    </span>
+                    
+                </li>
+                <li class="dishes" id="fourth">
+                        <img src='../images/huiguochaocai.jpg' width=136px height=80px />
+                        <span id="one">回锅肉炒菜 </span>                       
+                        <span id="two">微辣、回锅肉和小油菜</span>
+                        <span id="three">13(元) </span>
+                        <span id="four">8星</span>
+                        <span id="five">
+                                <button class="inn" id="order4">点餐</button>
+                                
+                            </span>
+                        <span id="six">
+                                <button class="inn" id="evaluate4">菜品评价</button>
+                        </span>
+                        
+                    </li>
+                    <li class="dishes" id="fifth">
+                            <img src='../images/yuxiangrousi.jpg' width=136px height=80px />
+                            <span id="one">鱼香肉丝</span>                           
+                            <span id="two">酸辣兼备、口感甚佳</span>
+                            <span id="three">18(元) </span>
+                            <span id="four">9星</span>
+                            <span id="five">
+                                    <button class="inn" id="order5">点餐</button>
+                                    
+                            </span>
+                            <span id="six">
+                                <button class="inn" id="evaluate5">菜品评价</button>
+                            </span>
+                            
+                        </li>
+                        <li class="dishes" id="sixth">
+                                <img src='../images/shuijiao.jpg' width=136px height=80px />
+                                <span id="one">特色水饺 </span>                               
+                                <span id="two">口味：韭菜鸡蛋、猪肉洋葱</span>
+                                <span id="three">11(元) </span>
+                                <span id="four">9星</span>
+                                <span id="five">
+                                        <button class="inn" id="order6">点餐</button>
+                                        
+                                    </span>
+                                    <span id="six">
+                                            <button class="inn" id="evaluate6">菜品评价</button>
+                                    </span>
+                                
+                            </li>
+                            <li class="dishes" id="seventh">
+                                    <img src='../images/huiguochaocai.jpg' width=136px height=80px />
+                                    <span id="one">回锅肉炒菜 </span>                                 
+                                    <span id="two">微辣、回锅肉和小油菜</span>
+                                    <span id="three">13(元) </span>
+                                    <span id="four">8星</span>
+                                    <span id="five">
+                                            <button class="inn" id="order7">点餐</button>
+                                            
+                                        </span>
+                                        <span id="six">
+                                                <button class="inn" id="evaluate7">菜品评价</button>
+                                        </span>
+                                    
+                                </li>
+                            
+                            <li class="dishes" id="eighth">
+                                <img src='../images/dandanmian.jpg' width=136px height=80px />
+                                <span id="one">担担面 </span>                              
+                                <span id="two">咸鲜微辣，特色面食小吃，面条细薄，卤汁醇香</span>
+                                <span id="three">9(元)</span>
+                                <span id="four">8星</span>
+                                <span id="five">
+                                        <button class="inn" id="order8">点餐</button>
+                                        
+                                    </span>
+                                    <span id="six">
+                                            <button class="inn" id="evaluate8">菜品评价</button>
+                                    </span>
+                                
+                            </li>
+                            <li class="dishes" id="ninth">
+                                <img src='../images/qingjiaoyumi.jpg' width=136px height=80px />
+                                <span id="one">青椒玉米</span>                               
+                                <span id="two">口味偏淡，清新素食家常菜</span>
+                                <span id="three">10(元) </span>
+                                <span id="four">8星</span>
+                                <span id="five">
+                                        <button class="inn" id="order9">点餐</button>
+                                        
+                                    </span>
+                                    <span id="six">
+                                            <button class="inn" id="evaluate9">菜品评价</button>
+                                    </span>
+                                
+                            </li>
+                            <li class="dishes" id="tenth">
+                                <img src='../images/huiguorou.jpg' width=136px height=80px />
+                                <span id="one">回锅肉</span>                              
+                                <span id="two">口味偏重，由猪后臀肉、青椒、蒜苗翻炒而成</span>
+                                <span id="three">18(元) </span>
+                                <span id="four">9星</span>
+                                <span id="five">
+                                        <button class="inn" id="order10">点餐</button>
+                                        
+                                    </span>
+                                    <span id="six">
+                                            <button class="inn" id="evaluate10">菜品评价</button>
+                                    </span>
+                                
+                            </li>
+                        </div>
+                        
+                        
+     
+
+             
+                     
+    </ul>
+</div>
+<script src="../js/universial.js"></script>

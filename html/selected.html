@@ -1,0 +1,355 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>已选菜品</title>
+    <link href="../css/style1.css"  rel="stylesheet"  media="screen"  type="text/css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/carts.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.dialog.js"></script>
+    <script src="../js/carts.js"></script>
+    <style type="text/css">a {text-decoration: none}</style>
+</head>
+<div>
+<div  class="nav_bg">
+    <div class="wrap"> 
+        <ul id="nav" class="nav clearfix">
+            <li class="nLi" style="font-size: 30px;">
+                <h3 class="e"><a  href="#" style="font-size: 23px;">饿了呀</a></h3>
+            </li>
+            <li class="nLi">
+              <h3 class="d"><a  href="./index.html">首页</a></h3>
+            </li>
+            <li class="nLi ">
+              <h3 class="d"><a href="myorder.html">我的订单</a></h3>
+              
+            </li>
+      
+            <li class="nLi ">
+              <h3 class="d"><a href="order-statistic.html">订单统计</a></h3>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="left" >
+    <ul class="leftborder">
+
+
+        <li class="border1">
+            <a href="myorder.html">
+                <img src='../images/dingdan.png' width=14 height=14 />
+                <span class="outer">  我的订单</span>
+                <br>
+                <br>
+                <span class="inner">近三个月的订单</span>
+                
+            </a>
+        </li>
+        <li class="border2">
+            <a href="./today.html">
+                <img src='../images/remaicaipin.png' width=14 height=14 />
+                <span class="outer">当天菜品</span>
+                
+            </a>
+        </li>
+        <li class="border3">
+            <a href="./recommend.html">
+                <img src='../images/tuijian.png' width=14 height=14 />
+                <span class="outer">推荐菜品</span>
+            </a>
+        </li>
+        <li class="border4">
+            <a href="./hot.html">
+                <img src='../images/menu.png' width=14 height=14 />
+                <span class="outer">热卖菜品</span>
+            </a>
+        </li>
+        <li class="border5clicked">
+                <a href="./selected.html">
+                    <img src='../images/today.png' width=14 height=14 />
+                    <span class="outer">已选菜品</span>
+                    
+                </a>
+        </li>
+       
+        
+                 
+    </ul>
+ <div style="display: none;" id="check1">
+    <li class="list_chk" id="check2">
+        <input type="checkbox" id="checkbox_6" class="son_check">
+        <label for="checkbox_6"></label>
+    </li> 
+    <li class="list_chk" id="check3">
+        <input type="checkbox" id="checkbox_3" class="son_check">
+        <label for="checkbox_3"></label>
+    </li> 
+    <li class="list_chk" id="check4">
+        <input type="checkbox" id="checkbox_4" class="son_check">
+        <label for="checkbox_4"></label>
+    </li> 
+    <li class="list_chk" id="check5">
+        <input type="checkbox" id="checkbox_5" class="son_check">
+        <label for="checkbox_5"></label>
+    </li> 
+    <li class="list_chk" id="check6">
+        <input type="checkbox" id="checkbox_7" class="son_check">
+        <label for="checkbox_7"></label>
+    </li> 
+    <li class="list_chk" id="check7">
+        <input type="checkbox" id="checkbox_8" class="son_check">
+        <label for="checkbox_8"></label>
+    </li> 
+    <li class="list_chk" id="check8">
+        <input type="checkbox" id="checkbox_9" class="son_check">
+        <label for="checkbox_9"></label>
+    </li> 
+    <li class="list_chk" id="check9">
+        <input type="checkbox" id="checkbox_10" class="son_check">
+        <label for="checkbox_10"></label>
+    </li> 
+    <li class="list_chk" id="check10">
+        <input type="checkbox" id="checkbox_11" class="son_check">
+        <label for="checkbox_11"></label>
+    </li> 
+    <li class="list_chk" id="check11">
+        <input type="checkbox" id="checkbox_12" class="son_check">
+        <label for="checkbox_12"></label>
+    </li> 
+    <li class="list_amount" id="box1">
+        <div class="amount_box">
+            <a href="javascript:;" class="reduce reSty">-</a>
+            <input type="text" value="1" class="sum">
+            <a href="javascript:;" class="plus">+</a>
+        </div>
+    </li>
+    <li class="list_amount" id="box2">
+        <div class="amount_box">
+            <a href="javascript:;" class="reduce reSty">-</a>
+            <input type="text" value="1" class="sum">
+            <a href="javascript:;" class="plus">+</a>
+        </div>
+    </li>
+    <li class="list_amount" id="box3">
+        <div class="amount_box">
+            <a href="javascript:;" class="reduce reSty">-</a>
+            <input type="text" value="1" class="sum">
+            <a href="javascript:;" class="plus">+</a>
+        </div>
+    </li>
+    <li class="list_amount" id="box4">
+        <div class="amount_box">
+            <a href="javascript:;" class="reduce reSty">-</a>
+            <input type="text" value="1" class="sum">
+            <a href="javascript:;" class="plus">+</a>
+        </div>
+    </li>
+    <li class="list_amount" id="box5">
+        <div class="amount_box">
+            <a href="javascript:;" class="reduce reSty">-</a>
+            <input type="text" value="1" class="sum">
+            <a href="javascript:;" class="plus">+</a>
+        </div>
+    </li>
+    <li class="list_amount" id="box6">
+        <div class="amount_box">
+            <a href="javascript:;" class="reduce reSty">-</a>
+            <input type="text" value="1" class="sum">
+            <a href="javascript:;" class="plus">+</a>
+        </div>
+    </li>
+    <li class="list_amount" id="box7">
+        <div class="amount_box">
+            <a href="javascript:;" class="reduce reSty">-</a>
+            <input type="text" value="1" class="sum">
+            <a href="javascript:;" class="plus">+</a>
+        </div>
+    </li>
+    <li class="list_amount" id="box8">
+        <div class="amount_box">
+            <a href="javascript:;" class="reduce reSty">-</a>
+            <input type="text" value="1" class="sum">
+            <a href="javascript:;" class="plus">+</a>
+        </div>
+    </li>
+    <li class="list_amount" id="box9">
+        <div class="amount_box">
+            <a href="javascript:;" class="reduce reSty">-</a>
+            <input type="text" value="1" class="sum">
+            <a href="javascript:;" class="plus">+</a>
+        </div>
+    </li>
+    <li class="list_amount" id="box10">
+        <div class="amount_box">
+            <a href="javascript:;" class="reduce reSty">-</a>
+            <input type="text" value="1" class="sum">
+            <a href="javascript:;" class="plus">+</a>
+        </div>
+    </li>
+    <li class="list_op" id="op1">
+        <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+    </li> 
+    <li class="list_op" id="op2">
+        <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+    </li> 
+    <li class="list_op" id="op3">
+        <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+    </li> 
+    <li class="list_op" id="op4">
+        <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+    </li> 
+    <li class="list_op" id="op5">
+        <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+    </li> 
+    <li class="list_op" id="op6">
+        <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+    </li> 
+    <li class="list_op" id="op7">
+        <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+    </li> 
+    <li class="list_op" id="op8">
+        <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+    </li> 
+    <li class="list_op" id="op9">
+        <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+    </li> 
+    <li class="list_op" id="op10">
+        <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+    </li> 
+    <li class="list_con" id="担担面">
+        <div class="list_img"><a href="javascript:;"><img src="../images/dandanmian.jpg" alt=""></a></div>
+        <div class="list_text"><a href="javascript:;">担担面</a></div>
+    </li>
+    <li class="list_con" id="剁椒鱼头">
+        <div class="list_img"><a href="javascript:;"><img src="../images/duojiaoyutou.jpg" alt=""></a></div>
+        <div class="list_text"><a href="javascript:;">剁椒鱼头</a></div>
+    </li>
+    <li class="list_con" id="家常荤素套餐">
+        <div class="list_img"><a href="javascript:;"><img src="../images/jiachang.jpg" alt=""></a></div>
+        <div class="list_text"><a href="javascript:;">家常荤素套餐</a></div>
+    </li>
+    <li class="list_con" id='红烧肉炒菜'>
+        <div class="list_img"><a href="javascript:;"><img src="../images/hongshaochaocai.jpg" alt=""></a></div>
+        <div class="list_text"><a href="javascript:;">红烧肉炒菜</a></div>
+    </li>
+    <li class="list_con" id="回锅肉炒菜">
+        <div class="list_img"><a href="javascript:;"><img src="../images/huiguochaocai.jpg" alt=""></a></div>
+        <div class="list_text"><a href="javascript:;">回锅肉炒菜</a></div>
+    </li>
+    <li class="list_con" id="回锅肉">
+        <div class="list_img"><a href="javascript:;"><img src="../images/huiguorou.jpg" alt=""></a></div>
+        <div class="list_text"><a href="javascript:;">回锅肉</a></div>
+    </li>
+    <li class="list_con" id="特色水饺">
+        <div class="list_img"><a href="javascript:;"><img src="../images/shuijiao.jpg" alt=""></a></div>
+        <div class="list_text"><a href="javascript:;">特色水饺</a></div>
+    </li>
+    <li class="list_con" id="鱼香肉丝">
+        <div class="list_img"><a href="javascript:;"><img src="../images/yuxiangrousi.jpg" alt=""></a></div>
+        <div class="list_text"><a href="javascript:;">鱼香肉丝</a></div>
+    </li>
+    <li class="list_con" id="青椒玉米">
+        <div class="list_img"><a href="javascript:;"><img src="../images/qingjiaoyumi.jpg" alt=""></a></div>
+        <div class="list_text"><a href="javascript:;">青椒玉米</a></div>
+    </li>
+    <ul class="order_lists" id="ul">
+
+    </ul>
+ </div>
+<section class="cartMain">
+    <div class="cartBox">
+        <div class="shop_info">
+            <p style="font-size: 13px; text-align: center;"><b>已选菜品</b></p>
+           
+        </div>
+        <div class="order_content" id="first">
+           
+        </div>
+    </div>
+
+   
+    <!--底部-->
+    <div class="bar-wrapper">
+        <div class="bar-right">
+            <div class="piece">已选商品<strong class="piece_num">0</strong>件</div>
+            <div class="totalMoney">共计: <strong class="total_text">0.00</strong></div>
+            <div class="calBtn"><a href="javascript:;">提交</a></div>
+        </div>
+    </div>
+</section>
+<section class="model_bg"></section>
+<section class="my_model">
+    <p class="title">删除菜品<span class="closeModel">X</span></p>
+    <p>您确认要删除该菜品吗？</p>
+    <div class="opBtn">
+        <a href="javascript:;" class="dialog-sure">确定</a>
+        <a href="javascript:;" class="dialog-close">关闭</a>
+    </div>
+</section>  
+
+<script>
+    var db = openDatabase('dishes', '1.0', '点餐数据库', 30*1024*1024);
+    var datatable = document.getElementById("first");
+    var dishnames=new Array();
+
+    showAllData(datatable);
+    function showData(row,datatable,i) {
+        console.log(dishnames.indexOf(row.dishname));
+    if(dishnames.indexOf(row.dishname)!=-1)
+   {
+
+       console.log("repeated");
+   }
+    else{ dishnames.push(row.dishname)
+   
+    var ul=document.createElement("ul");
+    ul.className="order_lists";
+    var check=document.getElementById("check"+(i+2));
+
+    var li1 = document.getElementById(row.dishname.replace(/(^\s+)|(\s+$)/g,""));
+    
+   
+    var li2= document.createElement("li");
+    li2.className="list_info";
+    li2.innerHTML=row.dishdisc;
+    var li3= document.createElement("li");
+
+    li3.className="list_price";
+    var p1=document.createElement("p");
+    p1.className="price"
+    var pri=row.disprice.split("(")[0];
+    p1.innerHTML='￥'+pri;
+    li3.appendChild(p1);
+    var li4= document.getElementById("box"+(i+1));
+    
+    var li5= document.createElement("li");
+    li5.className="list_sum";
+    var p2=document.createElement("p");
+    p2.className="sum_price"
+    p2.innerHTML='￥'+parseInt(pri);
+    li5.appendChild(p2);
+    var li6=document.getElementById("op"+(i+1));
+    
+    ul.appendChild(check);
+    ul.appendChild(li1);
+    ul.appendChild(li2);
+    ul.appendChild(li3);
+    ul.appendChild(li4);
+    
+    ul.appendChild(li5);
+    ul.appendChild(li6);
+    datatable.appendChild(ul);
+    console.log(datatable)
+    }
+    }
+    function showAllData(datatable) {
+    db.transaction(function(tx) {
+        tx.executeSql("CREATE TABLE IF NOT EXISTS MsgDate(picname TEXT,dishname TEXT,dishdisc TEXT,disprice TEXT,dishnum TEXT)", []);
+        tx.executeSql("SELECT * FROM MsgDate  ", [], function(tx, rs) {
+            
+            for(var i = 0; i < rs.rows.length; i++) {
+                showData(rs.rows.item(i),datatable,i)
+            }
+        })
+    })
+}
+</script>       

@@ -1,0 +1,197 @@
+body, h1, h2, h3, h4, h5, h6, p, pre, blockquote, dl, dt, dd, ul, ol, li, form, fieldset, legend, input, textarea, button, th, td {
+	margin: 0;
+	padding: 0;
+}
+.nav_bg {
+	height: 44px;
+	line-height: 44px;
+	background: #2196f3;
+}
+.nav_bg .wrap {
+	width: 1200px;
+	margin:  0;
+	display: block
+}
+.nav {
+	float: left;
+}
+
+.nav a {
+	display: block;
+	float: left;
+	padding: 0 20px;
+	color: #fff;
+	font-size: 16px;
+	height: 44px;
+	line-height: 44px;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.nav {
+	position: relative;
+	z-index: 1;
+}
+
+.nav .nLi {
+	float: left;
+	position: relative;
+	display: inline;
+}
+.nav .nLi .e {
+    padding: 0 0 0 90px;
+	float: left;
+}
+.nav .nLi .d {
+    padding: 0 0 0 20px;
+	float: left;
+}
+.nav .nLi h3 a {
+	display: block;
+}
+.nav .nLi .d a:hover {
+	background: #0D5780;
+	color: #fff;
+}
+.nav .on h3 a {
+	background: #1784db;
+	color: #fff;
+}
+.myorder{
+	position: relative;
+	width: 100%;
+	height: 40px;
+	margin-top: 50px;
+	
+	text-align: center;
+}
+
+.myorder .m{
+	color: #fff;
+	display: block;
+}
+
+.order_content{
+	position: relative;
+	margin-left: 300px;
+	margin-right: 300px;
+}
+.order_lists li{
+	position: relative;
+	margin-top: 40px;
+	background: #F0F0F0;
+}
+.order li{
+	position: relative;
+	margin-top: 40px;
+	background: #F0F0F0;
+}
+.order_lists li .food{
+	position: absolute;
+	margin-left: 60px;
+	padding:40px 0;
+	font-size: 20px;
+	top: 40%;
+	transform: translateY(-50%);
+}
+.order_lists li .num{
+	position: absolute;
+	margin-left: 60px;
+	font-size: 15px;
+	top:65%;
+}
+.order_lists li .disc{
+	position: absolute;
+	margin-left: 200px;
+	font-size: 15px;
+	top: 45%;
+}
+.order_lists li .price{
+	position: absolute;
+	margin-left: 600px;
+	font-size: 15px;
+	top: 45%;
+}
+.order_lists li button{
+	float: right;
+	height: 30px;
+	width: 60px;
+	margin-top: 45px;
+}
+.b_add{
+	position: relative;
+	margin: 0 auto;
+	width: 200px;
+	text-align: center;
+}
+.b_add button{
+	height: 40px;
+	width: 80px;
+	margin-top: 50px;
+}
+.my_model{
+    position: fixed;
+    display: none;
+    top:50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -200px;
+    z-index: 9999;
+    width: 360px;
+    height: 120px;
+    border: 1px solid #aeaeae;
+    border-radius: 3px;
+    padding: 20px;
+    background: #fff;
+}
+.my_model .title{
+    font-size: 14px;
+    color: #3c3c3c;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.my_model .title .closeModel{
+    float: right;
+    cursor: pointer;
+}
+.my_model p{
+    line-height:16px;
+    text-align: center;
+}
+.my_model .opBtn{
+    margin-top: 20px;
+}
+.my_model .opBtn a{
+    width: 58px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    -ms-border-radius: 1px;
+    border-radius: 1px;
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: 700;
+}
+.my_model .dialog-sure{
+    background: #52a0e5;
+    color: #fff;
+    border: 1px solid #52a0e5;
+    position: relative;
+    top:80%;
+    left:25%;
+}
+
+.my_model .dialog-close{
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    color: #3c3c3c;
+    position: relative;
+    top:80%;
+    left:40%;
+}
