@@ -1,6 +1,6 @@
 # 系统简介
 该 *Web点餐系统* 是为了给食堂提供下一天的菜品做参考，使用```HTML5 + CSS3 + JS(jQuery)```进行**前端开发**，数据库采用本地数据库**WebSQL**，不使用后端开发。 系统实现以下基本功能：
-- 首页导航有三个：<u>首页</u>、<u>我的订单</u>、<u>订单统计</u> 
+- 首页导航有三个：首页、我的订单、订单统计 
 - 在首页中： 
 (1) 展示当天菜品、热卖菜品、推荐菜品，显示完整的信息。 
 (2) 实现点菜，结果显示在合适位置中，所点的菜能够取消。 
@@ -13,7 +13,7 @@
 # 系统实现
 ## · 首页（当天菜品）/推荐菜品/热买菜品
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200120142531138.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MjAxNzIyMDMwMjAyOA==,size_16,color_FFFFFF,t_70#pic_center)
-**页面布局的核心html文件**
+### 页面布局的核心html文件
 让按钮或标签实现跳转界面：嵌套```<a href=""></a>```添加超链接即可。
 ```html
 <div>
@@ -75,7 +75,7 @@
     </div>
 </div>
 ```
-**当用户点击“点餐”按钮时执行的操作，js文件**
+### 当用户点击“点餐”按钮时执行的操作，js文件
 WebSQL数据库操作，后面有详细描述。
 ```javascript
 $('#order1').click(function() {
@@ -130,12 +130,15 @@ $('#order1').click(function() {
 ```
 ## · 已选菜品
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200120142740320.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MjAxNzIyMDMwMjAyOA==,size_16,color_FFFFFF,t_70)
-**查询数据库，获取数据显示到界面上，js文件**
-WebSQL数据库——==获取表单数据：==
-_**第一步：**_ ```openDatabase()```打开/创建数据库
-_**第二步：**_ ```db.transaction()```事务处理函数，它有三个参数，三个参数均为函数。第一个是事务提交函数，在这里面使用```tx.executeSql()```来执行查询任务，将对应元素读取出来。第二个参数和第三个参数分别是成功回调和失败回调函数，不是必要的，只要第一个参数也ok的。
+### 查询数据库，获取数据显示到界面上，js文件
+WebSQL数据库——**获取表单数据：**
+#### _第一步：_ 
+```openDatabase()```打开/创建数据库
+#### _第二步：_ 
+```db.transaction()```事务处理函数，它有三个参数，三个参数均为函数。第一个是事务提交函数，在这里面使用```tx.executeSql()```来执行查询任务，将对应元素读取出来。第二个参数和第三个参数分别是成功回调和失败回调函数，不是必要的，只要第一个参数也ok的。
 
-*<u>Q: 从数据库中读取的数据如何放到页面上？</u>*
+*Q: 从数据库中读取的数据如何放到页面上？*
+
 A: **写一个showData()函数**，作为前面说的*事务提交函数*。比如我的页面结构是：div--ul--li，那么首先我得声明一个var字符串，然后用```document.getElementById()```函数得到div对象，可以对其进行引用。再声明一个var，使用```document.createElement()```函数引用一个ul对象，最后使用```document.getElementById()```函数引用li对象，参数要写成数据库表单的内容：第几行的某个元素。这个应该对应之前在html中提前设置好的li的id，id即数据库表单的键值元素。即可对应起来。最后需要用```appendChild()```函数将他们一个一个连接起来就ok了。
 ```javascript
 <script>
@@ -200,11 +203,12 @@ A: **写一个showData()函数**，作为前面说的*事务提交函数*。比�
 }
 </script>
 ```
-*注意：* 在<u>已选菜品</u>中是在不断地读取数据库表单的数据来显示到当前页面，因此只有当表单数据清空才能让页面清空点击，所以在点击“提交"后，则需要执行删除表单*MsgData*中的数据操作。但是由于我需要在<u>我的订单</u>中回显提交后的数据，如果删除了表单那就没地方读取数据了，那么这里可以采取**创建一个新的数据库表单*Dingdan***，每当*提交*操作发生时，首先进行**表单备份**，即：把表单*MsgData*中的所有数据添加到新创建的表单*Dingdan*中，然后再执行删除*MsgData*表单操作，既实现了<u>已选菜品</u>中数据清空，又实现了<u>我的订单</u>中数据回显。
+*注意：* 在已选菜品中是在不断地读取数据库表单的数据来显示到当前页面，因此只有当表单数据清空才能让页面清空点击，所以在点击“提交"后，则需要执行删除表单*MsgData*中的数据操作。但是由于我需要在我的订单中回显提交后的数据，如果删除了表单那就没地方读取数据了，那么这里可以采取**创建一个新的数据库表单*Dingdan***，每当*提交*操作发生时，首先进行**表单备份**，即：把表单*MsgData*中的所有数据添加到新创建的表单*Dingdan*中，然后再执行删除*MsgData*表单操作，既实现了已选菜品中数据清空，又实现了我的订单中数据回显。
 ## · 我的订单
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200120142816878.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MjAxNzIyMDMwMjAyOA==,size_16,color_FFFFFF,t_70)
-**点击“删除”后执行删除数据库表单操作，js文件**
+### 点击“删除”后执行删除数据库表单操作，js文件
 WebSQL数据库——**删除表单数据：**
+
 删除表单数据跟获取表单数据的步骤是一样的，只不过我这里写了一个```DeleteData()```函数来封装db.transaction()，方便其他地方直接调用DeleteData()对其进行引用。
 ```javascript
 <script type="text/javascript">
@@ -253,8 +257,8 @@ WebSQL数据库——**删除表单数据：**
 
 ## · 订单统计
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200120142830913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MjAxNzIyMDMwMjAyOA==,size_16,color_FFFFFF,t_70)
-**使用Chart.js图表库绘制四种统计图**
-**1.Chart.js使用：==**
+### 使用Chart.js图表库绘制四种统计图
+#### 1.Chart.js使用：
 1. 引入Chart.js库
 ```javascript
 <script src="../js/Chart.js"></script>
@@ -285,7 +289,7 @@ var barChart = new Chart(popCanvas1, {
    }
 });
 ```
-**2.左侧菜单栏：**
+#### 2.左侧菜单栏：
 定义两个div，一个放菜单栏，一个放内容。将两个div放在同一行，在css中**设置div为浮动：**
 ```css
 .left{
@@ -297,7 +301,7 @@ var barChart = new Chart(popCanvas1, {
 ```css
 .left li {height:40px;  position:relative;  display:block;padding:20px 0 0 120px;}
 ```
-**3.隐藏div，点击菜单栏选项后才显示：**
+#### 3.隐藏div，点击菜单栏选项后才显示：
 除了第一个div，其余的样式设置为**隐藏：**
 ```html
 <div style="display: none;">
@@ -321,12 +325,12 @@ var barChart = new Chart(popCanvas1, {
 ```
 *PS:* 我当时遇到一个非常莫名其妙的问题，在经过多次切换后，所有图表都变得越来越小，甚至可以变得比最初小十分之一去了，看着怪吓人的，因为我绝对没有在任何地方改变过div的大小，刚开始以为是速度参数的问题，但是我改变了fast参数之发现这个问题依然存在，而且无参数更连动画效果都没有。最后查看开发者工具，进行多次调试，观察长宽的改变情况。发现了问题所在：
 > 对div的父容器设置长宽要用**百分比**才行。
->
+
 *我原来用的是数值，显示是invalid的，最后把宽度设置成百分比就会发现div的大小没有再改变了。*
 ```html
 <div class="content" style="width:50%">
 ```
 # 总结
-做Web前端感觉挺好玩的，你能很快地看到自己做出的效果，很有成就感。虽然这个过程中也遇到不少问题，但通过查阅资料和使用工具调试都得到了解决，第一次做Web前端学到不少东西，记录一下。有问题请多指教~~
+做Web前端感觉挺好玩的，你能很快地看到自己做出的效果，很有成就感。虽然这个过程中也遇到不少问题，但通过查阅资料和使用工具调试都得到了解决，第一次做Web前端学到不少东西，记录一下。
 # 协议
 本项目遵从[MIT协议](https://github.com/yuanyuano/Web/blob/master/LICENSE)
